@@ -68,7 +68,7 @@ def update_timer():
     # ヒントを表示
     if hinted_count < MAX_HINT_COUNT and elapsed_time - last_hinted_time > HINT_INTERVAL:
     #if not is_showing_hint and time_left <= time_limit - 10:
-        hint_button.place(x=100, y=550)  
+        hint_button.place(x=20, y=400)  
         last_hinted_time = elapsed_time
 
     root.after(100, update_timer)
@@ -226,8 +226,8 @@ def create_prompt():
 ヒント: 曲がる角度は角速度と時間から計算できるよ。計算してみてね！
 # インストラクション
 {instruction}
-# 正解のコード(一部抜粋)
-{_true_code}
+# 正解のコード(全て)
+{true_code}
 # ユーザーのコード(一部抜粋)
 {_user_code}
 # 直前のエラー
@@ -306,12 +306,12 @@ entry_widget.bind("<Return>", on_enter)
 entry_widget.bind("<Tab>", on_tab)
 
 # チェックボタンを作成
-check_button = tk.Button(root, text="回答をチェック", command=check_answer, bg="#5E81AC", fg="white", font=("Meiryo", 12), relief=tk.FLAT, padx=10, pady=5)
-check_button.place(x=720, y=880, anchor=tk.CENTER)
+check_button = tk.Button(root, text="回答をチェック", command=check_answer, bg="#5E81AC", fg="white", font=("Meiryo", 12), relief=tk.FLAT, padx=15, pady=5)
+check_button.place(x=720+480, y=720, anchor=tk.CENTER)
 
 # リセットボタンを作成
-reset_button = tk.Button(root, text="リセット", command=reset_code, bg="#5E81AC", fg="white", font=("Meiryo", 12), relief=tk.FLAT, padx=10, pady=5)
-reset_button.place(x=720-240, y=880, anchor=tk.CENTER)
+reset_button = tk.Button(root, text="リセット", command=reset_code, bg="#5E81AC", fg="white", font=("Meiryo", 12), relief=tk.FLAT, padx=15, pady=5)
+reset_button.place(x=720+240, y=720, anchor=tk.CENTER)
 
 # 結果を表示するラベルを作成
 result_label = tk.Label(root, text="", font=("Meiryo", 12))
@@ -319,7 +319,7 @@ result_label.place(x=720, y=960, anchor=tk.CENTER)
 
 # エラーを表示するラベルを作成
 error_label = tk.Label(root, text="", width=64, anchor=tk.W, font=("Meiryo", 12), wraplength=640, justify=tk.LEFT)
-error_label.place(x=780, y=660)
+error_label.place(x=780, y=800)
 
 # タイマー用プログレスバーを作成
 progress_frame = tk.Frame(root)
@@ -330,12 +330,12 @@ progress_bar = ttk.Progressbar(progress_frame, length=720, mode='determinate', v
 progress_bar.pack(padx=20, pady=10, fill=tk.X)
 
 # ヒントボタンを作成
-hint_button = tk.Button(root, text="ヒント", command=show_hint, bg="#5E81AC", fg="white", font=("Meiryo", 12), relief=tk.FLAT, padx=10, pady=5)
+hint_button = tk.Button(root, text="ヒントを見る", command=show_hint, bg="#5E81AC", fg="white", font=("Meiryo", 12), relief=tk.FLAT, padx=15, pady=5)
 hint_button.place_forget()
 
 # ヒントを表示するラベルを作成
-hint_label = tk.Label(root, text="", font=("Meiryo", 12), wraplength=500, justify=tk.LEFT)
-hint_label.place(x=20, y=580)
+hint_label = tk.Label(root, text="", font=("Meiryo", 12), wraplength=640, justify=tk.LEFT, padx=10)
+hint_label.place(x=20, y=480)
 
 
 # 仮のクイズを読み込み
