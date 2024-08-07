@@ -1,0 +1,42 @@
+{
+    "id": "q11",
+    "instruction": [
+        "プログラミング演習 1-1  #DriveBaseの設定",
+        "",
+        "LEGO Mindstorms EV3のPythonプログラムを完成させてください。",
+        "",        
+        "(a) ロボットをDriveBaseを用いて定義してください。",
+        "    タイヤの直径は5.6cm、タイヤ間の距離は13.5cmとします。",
+        "",
+        "(b) ロボットを速度100で3秒間直進させてください。"
+    ],
+    "code": [
+        "from pybricks.ev3devices import Motor",
+        "from pybricks.parameters import Port",
+        "from pybricks.robotics import DriveBase",
+        "",
+        "# EV3ロボットの準備",
+        "left = Motor(Port.B)",
+        "right = Motor(Port.C)", 
+        "robot = DriveBase(left, right, 56, 135)",
+        "",
+        "# 前に3秒間進む",
+        "robot.drive_time(100, 0, 3000)"
+    ],
+    "editable_lines": [8, 11],
+    "content": [
+        {
+            "line": 8,
+            "tag": "(a)",
+            "default": "robot =",
+            "answer": "robot = DriveBase(left, right, 56, 135)"
+        },
+        {
+            "line": 11,
+            "tag": "(b)",
+            "default": "robot.",
+            "answer": "robot.drive_time(100, 0, 3000)"
+        }
+    ],
+    "time_limit": 120
+}

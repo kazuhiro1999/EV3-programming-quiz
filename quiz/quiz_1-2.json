@@ -1,0 +1,56 @@
+{
+    "id": "q12",
+    "instruction": [
+        "プログラミング演習 1-2  #カラーセンサー",
+        "",
+        "LEGO Mindstorms EV3のPythonプログラムを完成させてください。",
+        "",        
+        "(a) カラーセンサーを定義してください。",
+        "    ポートは3番に接続されています。",
+        "",
+        "(b) ロボットを赤線で停止させてください。"
+    ],
+    "code": [
+        "from pybricks.ev3devices import Motor, ColorSensor",
+        "from pybricks.parameters import Port, Color",
+        "from pybricks.robotics import DriveBase",
+        "",
+        "left = Motor(Port.B)",
+        "right = Motor(Port.C)", 
+        "robot = DriveBase(left, right, 56, 135)",
+        "cs = ColorSensor(Port.S3)",
+        "",
+        "# 赤線まで進む",
+        "while not cs.color() == Color.RED:",
+        "    robot.drive()",
+        "robot.stop()"
+    ],
+    "editable_lines": [8, 11, 12, 13],
+    "content": [
+        {
+            "line": 8,
+            "tag": "(a)",
+            "default": "cs = ",
+            "answer": "cs = ColorSensor(Port.S3)"
+        },
+        {
+            "line": 11,
+            "tag": "(b)",
+            "default": "while not",
+            "answer": "while not cs.color() == Color.RED:"
+        },
+        {
+            "line": 12,
+            "tag": "(b)",
+            "default": "",
+            "answer": "    robot.drive()"
+        },
+        {
+            "line": 13,
+            "tag": "(b)",
+            "default": "",
+            "answer": "robot.stop()"
+        }
+    ],
+    "time_limit": 120
+}

@@ -1,0 +1,39 @@
+{
+    "id": "q13",
+    "instruction": [
+        "プログラミング演習 1-3  # 直進・曲がる",
+        "",
+        "LEGO Mindstorms EV3のPythonプログラムを完成させてください。",
+        "",        
+        "(a) ロボットを3秒間かけてその場で90度右に向けてください。"
+    ],
+    "code": [
+        "from pybricks.ev3devices import Motor",
+        "from pybricks.parameters import Port",
+        "from pybricks.robotics import DriveBase",
+        "",
+        "left = Motor(Port.B)",
+        "right = Motor(Port.C)", 
+        "robot = DriveBase(left, right, 56, 135)",
+        "",
+        "robot.drive_time(100, 0, 3000)",
+        "robot.drive_time(0, 30, 3000)",
+        "robot.drive_time(100, 0, 5000)"
+    ],
+    "editable_lines": [10],
+    "content": [
+        {
+            "line": 10,
+            "tag": "(a)",
+            "default": "# 右に曲がる",
+            "answer": "robot.drive_time(0, 30, 3000)",
+            "help": [
+                "曲がる時も直進と同じdrive_time()を使うよ。",
+                "drive_time()の引数はスピード、角速度、時間（ミリ秒）だよ。",
+                "曲がりたい角度 = 角速度 * 時間で計算できるよ。",
+                "その場で曲がる時はスピードは0にしよう。"
+            ]
+        }
+    ],
+    "time_limit": 60
+}

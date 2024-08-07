@@ -1,0 +1,7 @@
+{
+    "min_eye_openess": 0.19640563582497933,
+    "max_eye_openess": 0.4747266403220027,
+    "average_eye_openess": 0.3907250558543427,
+    "eye_blink_detection_threshold": 0.293565345839661,
+    "eye_blink_frequency": 5
+}

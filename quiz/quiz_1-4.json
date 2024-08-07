@@ -1,0 +1,42 @@
+{
+    "id": "q14",
+    "instruction": [
+        "プログラミング演習 1-4  # ライントレース",
+        "",
+        "以下のライントレースのプログラムを完成させてください。",
+        "(a) 黒線の右側をライントレースできるようにしてください。"
+    ],
+    "code": [
+        "from pybricks.ev3devices import Motor, ColorSensor",
+        "from pybricks.parameters import Port ,Color",
+        "from pybricks.robotics import DriveBase",
+        "",
+        "left = Motor(Port.B)",
+        "right = Motor(Port.C)", 
+        "robot = DriveBase(left, right, 56, 135)",
+        "cs = ColorSensor(Port.S3)",
+        "",
+        "while True:",
+        "    if cs.color() == Color.BLACK:",
+        "        robot.drive(50, 30)",
+        "    else:",
+        "        robot.drive(-50, 30)"
+    ],
+    "editable_lines": [11],
+    "content": [
+        {
+            "line": 11,
+            "tag": "(a)",
+            "default": "",
+            "answer": "    if cs.color() == Color.BLACK:",
+            "help": [
+                "カラーセンサーから色を取るにはcolor()を使うよ。",
+                "Color型は大文字であることに注意しよう。",
+                "直前のwhile文のインデントに気を付けよう。",
+                "if文の最後に:(コロン)を忘れずにつけよう。",
+                "黒線の右側という事は、黒色にいる時にどっち側に曲がればいいかな？"
+            ]
+        }
+    ],
+    "time_limit": 60
+}
